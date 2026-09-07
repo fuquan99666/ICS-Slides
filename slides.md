@@ -48,7 +48,7 @@ class: text-center
 
 # 目录
 
-Well, the herfs are not ready yet, but I will update them later.
+Well, the hrefs are not ready yet, but I will update them later.
 
 <div grid="~ cols-2 gap-12">
 
@@ -91,6 +91,7 @@ Well, the herfs are not ready yet, but I will update them later.
 | [CSAPP 笔记版 / PDF](https://disk.pku.edu.cn/link/AA834F941EFC62489DA7DBEEA2659CDCD5) | By [Arthals](https://github.com/zhuozhiyongde) & [EmptyBlueBox](https://github.com/EmptyBlueBox)，提取码 `csapp` |
 | [深入理解计算机系统视频版讲解](https://space.bilibili.com/354767108/lists/373847?type=season) | By [九曲阑干](https://space.bilibili.com/354767108) |
 | [CSAPP Errata](https://csapp.cs.cmu.edu/3e/errata.html) | CSAPP 勘误表（英文） |
+| [ICS Blog](https://www.elainafan.one/p/从零开始的计算机系统导论/) | By [elainafan](https://www.elainafan.one/) |
 | [CS61C 笔记](https://fuquan99666.github.io/categories/cs61c/) | By [Fuquan](https://fuquan99666.github.io) |
 
 
@@ -224,9 +225,46 @@ layout: two-cols-header
 - STFW （search the "friendly" web）
 
 ---
+
+# 整活
+
+相信大家经过大一一年的学习，已经是一名熟练的Coder了（虽然在溜溜梅时代，这一点值得怀疑），但会写代码=理解计算机？hhh，其实，写代码（无论是C语言还是更高级的编程语言）只是充当了一个翻译官的角色，问题的解决方法在你写代码前你应该就想好了(如果不是，说明你很勇啊)，所以写代码就只是在做翻译（bushi），将实际需求投影到高级语言中。然后同学们就不管了，反正各种IDE直接啪一个按钮就运行起来了，然后美滋滋提交到OJ上根据反馈debug🤣。但问题是，IDE那个神奇的按钮究竟在你不知道的地方干了什么呢？那些神秘OJ报错的细节你又掌握了多少呢？
+
+话说回来，大一的那些编程都是特定情景下的“舞蹈”，如果我让你写一个游戏作弊器，如何做呢？如果我让你写一个硬件驱动来diy自己的小键盘，如何做呢？如果我让你写一个磁盘格式化修复，如何做呢？而这些实际情景下的开发，都是需要你对计算机系统有相当的了解的。如果你对这些问题一筹莫展，不要气馁，相信经过ics的拷打，经过后续礼包的拷打，you will be a better hacker, and a better engineer.
+
+我会尝试在小班课中引入一些些os，体系，linux的知识，提升大家完成上述问题的能力，当然，为了避免空谈，我会引入不少有趣的代码(感谢jyy)，毕竟，实践出真知。
+
+---
+
+# 简单 C 程序的状态机模型 
+
+鉴于大家尚未学习汇编等知识，我们先从C语言视角出发，看看计算机到底是个什么回事。
+由之前的讨论我们可以知道，编写C代码其实就是在“翻译”，那么C代码的执行呢？其实C代码的执行，就是一个状态机的执行。
+
+C程序下的状态机：
+  - 状态 = 堆 + 栈 （或者理解成栈+其他）
+  - 初始状态 = main 的第一条语句 + 一些参数
+  - 状态迁移 = 执行一条语句中的一小步
+
+我们以汉诺塔问题为例:
+
+[递归实现](https://github.com/fuquan99666/ICS-Codes/blob/main/0/hanoi.c)
+
+[非递归实现](https://github.com/fuquan99666/ICS-Codes/blob/main/0/hanoi-nr.c)
+
+> 在递归实现中，我们利用C的递归调用来轻松解决了问题，而在非递归实现中，我们自己负责了这个递归函数调用的维护（包括转移和状态保存），每个函数frame是一个小状态机（有自己当前的pc和局部变量），整个C程序何尝不是一个大状态机呢？更进一步，everything is a state machine, 在计算机系统中这一点尤为明显。
+
+
+
+---
 layout: center
+class: text-center
 ---
 
 # THANKS !
 
+Slides源码 和示例代码都会放到我的 GitHub 上, 欢迎大家 PR ！
 
+[fuquan99666/ICS-Codes](https://github.com/fuquan99666/ICS-Codes)
+
+[fuquan99666/ICS-Slides](https://github.com/fuquan99666/ICS-Slides)
