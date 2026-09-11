@@ -235,6 +235,7 @@ layout: two-cols-header
 - 如何高效计算一个数对512取模的结果？如何高效计算一个数除以16的结果？
 - C语言中，int x = 6；和 short y = 6；x与y 表示同一个大小的数吗？
 - 在计算机中，数是“从左往右写”， 还是“从右往左写”？
+- “烫烫烫” 和 “屯屯屯” 的出现原因 ？[wikipedia](https://zh.wikipedia.org/wiki/中文亂碼)
 
 ---
 
