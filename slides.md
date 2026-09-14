@@ -105,8 +105,15 @@ Well, the hrefs are not ready yet, but I will update them later.
 
 |     |     |
 | --- | --- |
-| [Clab](https://clab.pku.edu.cn/) | 写 Lab 用的云计算实验平台 (也能用来玩玩Linux) |
+| [xlab](https://xlab.pku.edu.cn/) | 教学云, 各课程lab平台 |
+| [Clab](https://clab.pku.edu.cn/) | 云计算实验平台, 供大家日常开发使用 |
 | [Autolab](https://autolab.pku-ics.com) | Lab 用的自动评测平台 ~~卷王排行榜~~ |
+
+xlab 远程环境配置：
+
+1. `ssh-keygen -t ed25519` 生成密钥对
+
+2. [xlab 文档](https://xlab.pku.edu.cn/docs/getting-started)
 
 ---
 
