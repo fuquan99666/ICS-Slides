@@ -5,9 +5,9 @@
   "scripts": {
     "export": "slidev export",
     "dev": "slidev slides.md",
-    "dev:1": "slidev pages/1.md",
+    "dev:1": "slidev pages/01-Data-Representation.md",
     "build": "slidev build slides.md --base /ICS-Slides/0/ --out dist/0 && cp public/index.html dist/",
-    "build:1": "slidev build pages/1.md --base /ICS-Slides/1/ --out ../dist/1",
+    "build:1": "slidev build pages/01-Data-Representation.md --base /ICS-Slides/1/ --out ../dist/1",
     "build:all": "pnpm run build && pnpm run build:1"
   },
   "dependencies": {
