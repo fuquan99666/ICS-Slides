@@ -20,13 +20,13 @@ importers:
       '@slidev/theme-seriph':
         specifier: latest
         version: 0.25.0
-      slidev-theme-academic:
-        specifier: ^2.0.1
-        version: 2.1.0(postcss@8.5.28)(vite@8.2.2(@types/node@22.20.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.0))
       vue:
         specifier: ^3.5.33
         version: 3.5.42(typescript@6.0.3)
     devDependencies:
+      slidev-theme-academic:
+        specifier: ^2.0.1
+        version: 2.1.0(postcss@8.5.28)(vite@8.2.2(@types/node@22.20.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.0))
       vite:
         specifier: ^8.2.2
         version: 8.2.2(@types/node@22.20.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)(yaml@2.9.0)

@@ -27,7 +27,7 @@ coverBackgroundUrl: /01-Data-Representation/cover.jpg
 
 # 数据表示 {.font-bold}
 
-2110306206 预防医学&信双 卓致用{.!text-gray-200}
+fuquan 基于A神模版{.!text-gray-200}
 
 <div class="pt-12  text-gray-1">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -529,7 +529,7 @@ determine overflow
 
 ### 无符号数加法
 
-- $s = x + y$，若 $s < x$ 或 $s < y$ 则溢出
+- $s = x + y$，若 $s < x$ 或 $s < y$ 则溢出 （丢了个 1）
 
 <br>
 
@@ -544,6 +544,8 @@ determine overflow
 
 
 为什么只有这两种情况？
+
+~~如果一正一负显然不会发生溢出。。。~~
 
 </div>
 
@@ -616,7 +618,7 @@ two's complement negation
 
 对满足 $\text{TMin}_w \leq x \leq \text{TMax}_w$ 的 $x$ 来说：
 
-- 若 $x = \text{TMin}_w$，则 $-x = \text{TMin}_w$
+- 若 $x = \text{TMin}_w$，则 $-x = \text{TMin}_w$ 
 - 否则，$-x = -x$（算术上的）
 
 注：这里式子左边的 $-x$ 是 **算数逆元**
@@ -671,7 +673,7 @@ multiplication and division
 
 向 0 取整：`(x < 0) ? (x + (1 << k) - 1 : x) >> k`
 
-证明见书 P73
+证明见书 P73 （证明一大堆，简单理解就是会保证进一位）
 
 <!--
 为什么是向下舍入？因为后面都是正权！
@@ -747,10 +749,12 @@ $$
 V = (-1)^s \times (0.M) \times 2^E
 $$
 
-- $E = 1 - Bias$，虽然此时 $[e] = 0$，但如此规定可以实现规格化值和非规格化值的平滑过渡
+- $E = 1 - Bias$，虽然此时 $[e] = 0$，但如此规定可以实现规格化值和非规格化值的平滑过渡 （见P80）
 - 尾数没有隐含的 1
 
 </div>
+
+浮点数排序：图2-35 中展示浮点数就是按照升序排列的(可以看成是无符号数)， IEEE格式如此设计就是为了浮点数能够使用整数排序函数来进行排序。
 
 </div>
 
@@ -885,7 +889,7 @@ $$
 
 ### 浮点数转整型{.mt-6}
 
-- 如果舍入，向零舍入
+- 如果舍入，向零舍入 （小数部分直接舍弃）
 - 如果溢出，C 语言未规定（undefined behavior），各自处理（Intel：$T_{\text{min}}^w$，即舍入到限定最接近的数）
 
 ---
@@ -905,13 +909,13 @@ rounding
 也即，原数的精确表示实际上是：
 
 $$
-\pm 2^{127} \times (1.\underbrace{111...\blue{1}}_{24 个 1})_2
+\pm 2^{127} \times (1.\underbrace{111...\blue{1}}_{24 个 1})_2 （其实不一定都是1哈）
 $$
 
 其被舍入到了
 
 $$
-\pm 2^{127} \times (1.\underbrace{111...1}_{23 个 1})_2
+\pm 2^{127} \times (1.\underbrace{111...1}_{23 个 1})_2 （同上，只要最后一位舍入即可）
 $$
 
 </div>
@@ -926,7 +930,7 @@ floating point arithmetic
 - 浮点加法单调性，如果 $a \ge b$，那么对于任何 $a$，$b$ 以及 $x$ 的值，除了 `NaN` 都有 $x + a \ge x + b$
 - 乘法可交换 `x * y = y * x`，乘法不可结合 `(x * y) * z != x * (y * z)`
 - 乘法在加法上不可分配 `(x + y) * z != x * z + y * z`
-- 小心特殊值：`+inf`，`-inf`，`NaN`
+- 小心特殊值：`+inf`，`-inf`，`NaN` ！！！
 
 <span class="text-sm text-gray-500">* 这些东西说了没用，得你自己做题踩坑才会知道。</span>
 
@@ -946,25 +950,17 @@ exception
 - Underflow：舍入结果
 - Inexact：舍入结果
 
-更多详情请见 [IEEE754](https://en.wikipedia.org/wiki/IEEE_754) 异常处理
+更多详情请见 [IEEE754](https://en.wikipedia.org/wiki/IEEE_754#Exception_handling) 异常处理
 
 ---
 layout: center
+class: text-center
 ---
 
+# THANKS !
 
-<div flex="~ gap-16"  mt-2 justify-center items-center>
+Slides源码 和示例代码都会放到我的 GitHub 上, 欢迎大家 PR ！
 
+[fuquan99666/ICS-Codes](https://github.com/fuquan99666/ICS-Codes)
 
-<div  w-fit h-fit mb-2>
-
-# THANKS
-
-Made by Arthals with ❤️ ~~and hair~~ {.mb-4}
-
-[Blog](https://arthals.ink/) · [GitHub](https://github.com/zhuozhiyongde) · [Bilibili](https://space.bilibili.com/203396427)
-
-</div>
-
-
-</div>
+[fuquan99666/ICS-Slides](https://github.com/fuquan99666/ICS-Slides)
