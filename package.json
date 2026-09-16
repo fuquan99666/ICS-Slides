@@ -14,7 +14,9 @@
     "@slidev/cli": "^52.19.1",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
-    "vue": "^3.5.33"
+    "vue": "^3.5.33",
+    "@iconify/json": "^2.2.246",
+    "slidev-theme-academic": "^2.0.1"
   },
   "devDependencies": {
     "vite": "^8.2.2"
