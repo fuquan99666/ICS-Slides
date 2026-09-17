@@ -25,7 +25,7 @@ class: text-center
 </p>
 
 <p style="margin: 1.5rem 0;">
-  一名来自 ai 方向的 Linux 24级本科生，曾在去年的这个时候接受ICS lab 的拷打 / Linux 爱好者
+  一名来自 ai 方向的 24 级本科生，曾在去年的这个时候接受ICS lab 的拷打 / Linux 爱好者
 </p>
 
 <!-- 联系方式列表 -->

@@ -149,6 +149,15 @@ byte order
 
 ---
 
+## 题外话: char是否有符号?
+
+
+- signed、signedint以及int是等价类型
+- char 没有这种默认等价性。char 不和 signed char 或者 unsigned char其中任何一个等价，因此使用 char 时最好标明是 signed char 还是unsigned char。
+- 本人在写 FAT32 时的惨痛教训 ...
+
+---
+
 # 布尔运算
 
 boolean operation
