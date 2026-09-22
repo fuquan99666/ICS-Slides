@@ -169,16 +169,25 @@ Program Counter (PC)
 - 每当执行一条指令时，程序计数器会根据指令的长度自动更新，指向下一条指令的地址。
 
 ---
-layout: figure-side
-figureUrl: /02-Machine-Programming-I/registers.png
-figureX: r
+layout: default
 ---
+
+<div grid="~ cols-2 gap-8">
+<div>
 
 # 寄存器
 
 Registers
 
 这个表要完整的记忆下来。{.text-sky-5}
+
+</div>
+<div>
+
+![registers](/02-Machine-Programming-I/registers.png)
+
+</div>
+</div>
 
 ---
 
@@ -413,10 +422,11 @@ operand indicator
 <!-- 很显然，选 D -->
 
 ---
-layout: figure-side
-figureUrl: /02-Machine-Programming-I/runtime-memory.png
-figureX: r
+layout: default
 ---
+
+<div grid="~ cols-2 gap-8">
+<div>
 
 # 栈
 
@@ -428,6 +438,14 @@ stack
 - **局部变量存储**：函数的局部变量会存储在栈帧中，函数结束时这些变量会自动释放（通过调整栈顶指针 `%rsp` 标记）。
 - **控制流管理**：通过保存返回地址，确保函数调用结束后能正确返回调用点。
 
+</div>
+<div>
+
+![runtime-memory](/02-Machine-Programming-I/runtime-memory.png)
+
+</div>
+</div>
+
 <!-- 
 
 一个理解：为什么向下增长？往上是内核态，容易爆炸，这在 Attack lab 中会类似地用到
@@ -436,10 +454,11 @@ stack
  -->
 
 ---
-layout: figure-side
-figureUrl: /02-Machine-Programming-I/runtime-memory.png
-figureX: r
+layout: default
 ---
+
+<div grid="~ cols-2 gap-8">
+<div>
 
 # 栈
 
@@ -456,6 +475,14 @@ stack
 
 `%rdi`，`%rsi`，`%rdx`，`%rcx`，`%r8`，`%r9`
 
+</div>
+
+</div>
+<div>
+
+![runtime-memory](/02-Machine-Programming-I/runtime-memory.png)
+
+</div>
 </div>
 
 ---
@@ -480,16 +507,25 @@ stack data operation
 ![push-pop](/02-Machine-Programming-I/push-pop.png){.h-90.mx-auto}
 
 ---
-layout: figure-side
-figureUrl: /02-Machine-Programming-I/stack.png
-figureX: r
+layout: default
 ---
+
+<div grid="~ cols-2 gap-8">
+<div>
 
 # 栈的结构
 
 structure of the stack
 
 注意参数的压栈顺序、被调用者保存的寄存器。
+
+</div>
+<div>
+
+![stack](/02-Machine-Programming-I/stack.png)
+
+</div>
+</div>
 
 
 ---
