@@ -169,9 +169,9 @@ Program Counter (PC)
 - 每当执行一条指令时，程序计数器会根据指令的长度自动更新，指向下一条指令的地址。
 
 ---
-layout: image-right
-image: /02-Machine-Programming-I/registers.png
-backgroundSize: 80%
+layout: figure-side
+figureUrl: /02-Machine-Programming-I/registers.png
+figureX: r
 ---
 
 # 寄存器
@@ -413,9 +413,9 @@ operand indicator
 <!-- 很显然，选 D -->
 
 ---
-layout: image-right
-image: /02-Machine-Programming-I/runtime-memory.png
-backgroundSize: 80%
+layout: figure-side
+figureUrl: /02-Machine-Programming-I/runtime-memory.png
+figureX: r
 ---
 
 # 栈
@@ -436,9 +436,9 @@ stack
  -->
 
 ---
-layout: image-right
-image: /02-Machine-Programming-I/runtime-memory.png
-backgroundSize: 80%
+layout: figure-side
+figureUrl: /02-Machine-Programming-I/runtime-memory.png
+figureX: r
 ---
 
 # 栈
@@ -480,9 +480,9 @@ stack data operation
 ![push-pop](/02-Machine-Programming-I/push-pop.png){.h-90.mx-auto}
 
 ---
-layout: image-right
-image: /02-Machine-Programming-I/stack.png
-backgroundSize: contain
+layout: figure-side
+figureUrl: /02-Machine-Programming-I/stack.png
+figureX: r
 ---
 
 # 栈的结构
