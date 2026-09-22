@@ -88,6 +88,15 @@ objdump -d hello > hello.asm
 
 ---
 
+# 彩蛋
+gcc这个命令到底干了啥？Well，书上说它预处理、汇编、链接 ... 我们如何验证呢？
+
+```bash
+strace gcc a.c 
+```
+
+---
+
 # 基本概念
 
 basic concepts
@@ -494,6 +503,20 @@ structure of the stack
 
 ---
 
+# 彩蛋
+某个程序的栈空间多大呢？无限 or 某个特定的数值？我们如何知晓呢？
+
+- 一个简单的想法：不断栈递归直到栈溢出，统计大小。
+- [代码示例](https://github.com/fuquan99666/ICS-Codes/blob/main/2/stack-probe.c)
+- 如何查看和设置栈空间大小呢？
+
+```bash
+ulimit -s # 查看栈空间大小，单位 KB
+ulimit -s 8192 # 设置栈空间大小为 8192 KB
+```
+
+---
+
 # 算数和逻辑操作
 
 arithmetic and logical operations
@@ -798,7 +821,7 @@ encoding of jumping instruction
 
 encoding of PC-relative jumping instruction
 
-注意，其中一个加数的是 **下一条指令**{.text-sky-5} 的地址！
+注意，其中一个加数的是 **下一条指令**{.text-sky-5} 的地址！(你有想过为什么吗，CPU架构请！)
 
 ![jmp-offset](/02-Machine-Programming-I/jmp-offset.png){.h-90.mx-auto}
 
