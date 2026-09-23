@@ -91,9 +91,21 @@ objdump -d hello > hello.asm
 # 彩蛋
 gcc这个命令到底干了啥？Well，书上说它预处理、汇编、链接 ... 我们如何验证呢？
 
+**用 strace 打开它!**
+
 ```bash
-strace gcc a.c 
+strace -f gcc a.c 2>&1 | vim -
 ```
+
+逃避困难是人的本能和天性，但大家要坚信一句话：任何计算机世界中你想做的事情，肯定有前辈已经做过了，甚至有现成的工具可以直接使用。
+
+```bash
+# vim 魔法
+:%!grep execve
+:%s/,/\r/g
+```
+
+于是乎，你完全解读了gcc的执行过程，你得到了和教科书上同样的结论，甚至你发现了它的不足！
 
 ---
 
@@ -614,8 +626,6 @@ special arithmetic operations
 | `divq S` | `R[%rdx] ← R[%rax] mod S; R[%rax] ← R[%rdx] ÷ S` | 无符号除法            |
 
 </div>
-
-勘误：书上这里写成 `clto` 了。
 
 一般这里只考搭配的是 `%rax` 和 `%rdx` 两个寄存器，且后者在乘法里是高位。`%rax` 在除法里用于存商（因为 `%rax` 一般用于返回结果，可以这么记）
 ---
@@ -1287,6 +1297,69 @@ switch statement
 - 在 `switch` 对应的汇编代码段中，用 `jmp *JumpTab[x]` 间接跳转的方式跳转到对应的分支
 
 简便理解：在一段特定的内存空间（跳转表）中，连续存放了多个跳转指令起始入口的地址，然后通过间接跳转的方法，根据当前的 `case` 值，跳转到对应的 `case` 代码段中。
+
+---
+layout: default
+---
+
+# 彩蛋
+
+label 到底是？绝对地址还是相对地址？为什么？
+
+<div grid="~ cols-2 gap-12">
+<div text="sm">
+
+在书上 p161 的例子中，这里的 `.L4` 应该是一个绝对地址：
+
+```asm
+subq   $100, %rsi
+cmpq  $6, %rsi
+ja .L8
+jmp *.L4(,%rsi,8)
+...
+
+
+    .section   .rodata
+    .align 8
+.L4:
+    .quad .L3
+    .quad .L8
+    .quad .L5
+    ...
+```
+
+**所以, Label可以看成是一个占位符，具体的地址（绝对还是相对）都是链接器根据具体汇编代码来填的**
+
+</div> 
+
+
+
+<div text="sm">
+
+而我实际编译得到的汇编里，这个.L4显然是一个相对地址：
+```asm
+    subq    $100, %rsi
+    cmpq    $6, %rsi
+    ja  .L8
+    leaq    .L4(%rip), %rcx
+    movslq  (%rcx,%rsi,4), %rax
+    addq    %rcx, %rax
+    notrack jmp *%rax
+    .section    .rodata
+    .align 4
+    .align 4
+.L4:
+    .long   .L7-.L4
+    .long   .L8-.L4
+    .long   .L6-.L4
+    .long   .L5-.L4
+    .long   .L3-.L4
+    .long   .L8-.L4
+    .long   .L3-.L4
+
+```
+</div> 
+</div> 
 
 ---
 
