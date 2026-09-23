@@ -43,6 +43,15 @@ fuquan 基于A神{.!text-gray-200}
 
 ---
 
+# Some things
+
+- 如果你准备开工 bomb lab, 推荐观看[A神入门教程](https://www.bilibili.com/video/BV1RFxheeEcy/?share_source=copy_web&vd_source=b8f0a6fce11ed11e5b293d962deba800)
+- 切记不要在没有做安全处理的情况下随意运行 bomb lab, 否则💥
+- 上周作业, 部分同学的计算能力有待加强 -> [自行校对](https://dreamanddead.github.io/CSAPP-3e-Solutions/)
+- 以及，如果你对我的上课方式有什么建议，请随时提
+
+---
+
 # 基本概念
 
 basic concepts
