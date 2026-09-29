@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: Build all slide decks
-        run: pnpm run build:all
+        run: pnpm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
