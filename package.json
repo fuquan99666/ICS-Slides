@@ -7,10 +7,12 @@
     "dev": "slidev slides/00-Introduction.md",
     "dev:1": "slidev slides/01-Data-Representation.md",
     "dev:2": "slidev slides/02-Machine-Programming-I.md",
+    "dev:3": "slidev slides/03-Machine-Programming-II.md",
     "build": "slidev build slides/00-Introduction.md --base /ICS-Slides/0/ --out ../dist/0 && cp public/index.html dist/",
     "build:1": "slidev build slides/01-Data-Representation.md --base /ICS-Slides/1/ --out ../dist/1",
     "build:2": "slidev build slides/02-Machine-Programming-I.md --base /ICS-Slides/2/ --out ../dist/2",
-    "build:all": "pnpm run build && pnpm run build:1 && pnpm run build:2"
+    "build:3": "slidev build slides/03-Machine-Programming-II.md --base /ICS-Slides/3/ --out ../dist/3",
+    "build:all": "pnpm run build && pnpm run build:1 && pnpm run build:2 && pnpm run build:3"
   },
   "dependencies": {
     "@iconify/json": "^2.2.246",
