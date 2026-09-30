@@ -118,7 +118,7 @@ stack structure in x86-64
 2. **栈顶管理**：使用 `push` 和 `pop` 指令进行数据的压栈和出栈管理。
 3. **帧指针和栈指针**：使用寄存器 `%rbp` 和 `%rsp` 定位和管理栈帧。
 
-**Wait, 你有没有想过，为什么ics这块学起来像高中生物；你有没有好奇过，为什么我在shell里./a.out之后程序就会运行呢**
+**Wait, ics学起来像高中生物？你有没有好奇过，为什么我在shell里./a.out之后程序就会运行呢**
 
 罪魁祸首 -> [i386的ABI标准](https://math-atlas.sourceforge.net/devel/assembly/abi386-4.pdf)
 
@@ -261,7 +261,7 @@ local storage on the stack
 有时，局部数据必须在内存中：
 
 - 寄存器不够用
-- 对一个局部变量使用地址运算符 `&`（因此必须能够为它产生一个地址，而不能放到寄存器里）
+- 对一个局部变量使用地址运算符 `&`（因此必须能够为它产生一个地址，而不能放到寄存器里） emm, 之前测量栈大小有说过...
 - 是数组或结构（要求连续、要求能够被引用 `&` 访问到）
 
 注意，生长方向与参数构造区相反！
@@ -742,6 +742,13 @@ int main() {
 
 *此页内容可能存在不严谨之处，能理解、会算就行，考试真的会考{.text-sm.text-gray-5}
 
+```c
+int A[5][3]; // 和下面的申明等价，可能更好理解
+
+typedef int row3_t[3];
+row3_t A[5];
+```
+
 ---
 
 # 指针的大小与类型
@@ -969,6 +976,9 @@ structure alignment
 - 内部填充：为了满足每个长度为 $K$ 的数据相对于首地址的偏移都是 $K$ 的倍数
 - 外部填充：为了满足内存总长度是最大的 $K$ 的倍数
 
+**更准确的说是：任何 $K$ 字节的基本对象的地址必须是是 $K$ 的倍数**
+
+- 所以，除了内部和外部填充，请对齐这个基本对象的首地址也是 $K$ 的倍数。(.align xxx)
 
 ---
 
@@ -1119,6 +1129,38 @@ force alignment
 - 大多数函数的栈帧的边界都必须是 16 字节的倍数（这个要求有一些例外）
 - 参数构造区向 8 对齐
 
+**为什么要对齐？[一个mem的简单实现](https://github.com/fuquan99666/CS61C-Assignment/tree/main/Project/proj3/cpu/mem.circ)**
+
+其中第一点是为了满足 SSE 指令集的要求，SSE 指令集要求数据必须是 16 字节对齐的，否则会触发硬件异常。
+
+- SSE指令集？ Streaming SIMD Extensions（流式单指令多数据扩展），是英特尔推出的一种SIMD（Single Instruction, Multiple Data）指令集扩展，主要用于加速多媒体和科学计算等需要大量数据并行处理的应用。 **[一个例子展示SSE的威力](https://github.com/fuquan99666/CS61C-Assignment/tree/main/Lab/lab09)**
+
+---
+
+# 浮点代码
+
+- CSAPP上的浮点部分过于阴间～～～（各种神奇浮点指令hhh）
+
+[kkwd](https://fuquan99666.github.io/p/cs61c_16-flynn-taxonomy-simd-instructions/)
+
+---
+
+# gdb！
+
+- CSAPP上列举了很多gdb的命令，damn， 我想要的是这个么
+- 一个更好的gdb教程 -> [here](https://linuxconfig.org/gdb-debugging-tutorial-for-beginners)
+- 一个更更好的gdb教程：我自己写一个gdb （hhhhh）
+    - 助教助教，我连gdb怎么工作的都不知道，怎么办呢？溜溜梅时代一个最好的事情就是知识的获取不再是RTFW，[学会问ai](https://chat.deepseek.com/share/rcu10ki62jar2qsqbb)
+    - 如果，你觉得这个的难度还是太大，[nemu's PA1](https://nju-projectn.github.io/ics-pa-gitbook/ics2026/PA1.html) 会带你在nemu（一个计算机模拟器）上实现一个丐版gdb，虽然实现的方式和真正的gdb native不太一样，但是其思想是一样的！
+
+- [调试工具与原理](https://nju-projectn.github.io/ics-pa-gitbook/ics2026/1.6.html#调试工具与原理) 简单介绍
+
+---
+
+# 汇编大题赏析
+
+- 来自OS姐的[馈赠](https://my.feishu.cn/docx/QHvYdDOjToGpb9xC8Okc2fpKnVb)
+- 某年期中[大题](https://my.feishu.cn/docx/Q1lod6GWeoxkgnxhC7Icb1j3nig)
 
 ---
 layout: center
