@@ -55,6 +55,7 @@ fuquan 基于A神{.!text-gray-200}
 之前演示时 godbolt 总是生成一堆奇怪代码，原因是：忘记关掉 inter asm 风格了😭
 
 - AT&A/Unix 与 Inter 汇编语法 [风格区分](https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html#s3)
+- 通过这个链接你还可以学习一些内联汇编的知识～
 
 ---
 
@@ -898,17 +899,20 @@ Complex Instruction Set Computer & Reduced Instruction Set Computer
 
 
 <div grid="~ cols-2 gap-4">
-  <div>
+<div>
 
 * Y86-64 是 X86-64 的子集
 * X86-64 更复杂，但是更强大
 * Y86-64 更简单，复杂指令由简单指令组合而成
-  
+
 如 Y86-64 的算数指令（`OPq`）只能操作寄存器，而 X86-64 可以操作内存
 
 > 所以 Y86-64 需要额外的指令（`mrmovq`、`rmmovq`）来先加载内存中的值到寄存器，再进行运算
 
-  </div>
+- 一篇对比 CISC 和 RISC 的[小短文](http://cs.stanford.edu/people/eroberts/courses/soco/projects/risc/risccisc)
+- 我本人无意引发圣战😇[CPU架构之争：RISC的诞生与发展缩影](https://blog.csdn.net/SeaCloudHill/article/details/110805281)
+
+</div>
 <div>
 
 * CISC：复杂指令集计算机
