@@ -52,6 +52,74 @@ fuquan 基于A神{.!text-gray-200}
 
 ---
 
+# 关于4-7次书面作业
+
+- 如果你觉得 一些题目 （比如栈）手动画图做更方便，你可以提交纸质扫描/平板手写，但请确保：
+  - 答案清楚
+  - 图像清楚
+  - 不要乱涂乱画。。。
+- 几个有意思的题目：3.59、3.67、课本练习题3.49（其实是鼓励大家阅读一下课本3.10.5 并搞懂 图3-43）
+
+---
+
+<div class="container">
+
+<div class="left">
+
+```asm
+vframe:
+  pushq  %rbp
+  movq   %rsp, %rbp
+  subq   $16, %rsp
+  leaq   22(,%rdi, 8), %rax
+  andq   $-16, %rax
+  subq   %rax, %rsp
+  leaq   7(%rsp), %rax
+  shrq   $3, %rax
+  leaq   0(,%rax, 8), %r8
+  movq   %r8, %rcx
+
+  ......
+  Code for initialization loop
+  i in %rax and on stack, n in %rdi, p in %rcx, q in %rdx
+
+.L3:
+  movq   %rdx, (%rcx,%rax,8)
+  addq   $1, %rax
+  movq   %rax, -8(%rbp)
+.L2:
+  movq   -8(%rbp), %rax
+  cmpq   %rdi, %rax
+  jl     .L3
+
+  leave
+  ret
+
+```
+
+</div>
+
+<div class="right">
+
+```c
+long vframe(long n, long idx, long *q){
+    long i;
+    long *q[n];
+    p[0] = &i;
+    for (i = 1; i < n; i++) {
+        p[i] = q;
+    }
+    return *p[idx];
+}
+
+```
+
+</div>
+
+</div>
+
+---
+
 # gdb 断点工作原理的证据
 
 - 上节课我提了一嘴 nemu 和 gdb 两种实现断点的方式，现在我们通过一段[代码](https://github.com/fuquan99666/ICS-Codes/blob/main/4/int3.c)来验证 gdb 的断点实现方式
