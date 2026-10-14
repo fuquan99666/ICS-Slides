@@ -60,11 +60,65 @@ fuquan 基于A神{.!text-gray-200}
   - 不要乱涂乱画。。。
 - 几个有意思的题目：3.59、3.67、课本练习题3.49（其实是鼓励大家阅读一下课本3.10.5 并搞懂 图3-43）
 
+<div grid="~ cols-2 gap-12">
+
+<div>
+
+3.59： 两个64位有符号数相乘，将128位结果保存
+
+```c
+void store_prod(int128_t *dest, int64_t x, int64_t y) {
+  *dest = x * (int128_t)y;
+}
+```
+
+</div>
+<div>
+
+```asm
+store_prod:
+  movq %rdx, %rax
+  cqto
+  movq %rsi, %rcx
+  sarq $63, %rcx
+  imulq %rax, %rcx
+  imulq %rsi, %rdx
+  addq %rdx, %rcx
+  mulq %rsi
+  addq %rcx, %rdx
+  movq %rax, (%rdi)
+  movq %rdx, 8(%rdi)
+  ret
+```
+
+</div>
+</div>
+
+
 ---
 
-<div class="container">
+<div grid="~ cols-2 gap-12">
+<div>
 
-<div class="left">
+图3-43 变长数组 / rbp寄存器的运用
+
+```c
+long vframe(long n, long idx, long *q){
+    long i;
+    long *q[n];
+    p[0] = &i;
+    for (i = 1; i < n; i++) {
+        p[i] = q;
+    }
+    return *p[idx];
+}
+
+```
+
+在较早版本的 x86 代码中，每个函数调用都使用了帧指针。而现在，只在栈帧长可变的情况下才使用，就像这里的vframe一样。历史上，大多数编译器在生成IA32代码时会用帧指针，而最近的GCC放弃了这个惯例。
+
+</div>
+<div>
 
 ```asm
 vframe:
@@ -98,24 +152,6 @@ vframe:
 ```
 
 </div>
-
-<div class="right">
-
-```c
-long vframe(long n, long idx, long *q){
-    long i;
-    long *q[n];
-    p[0] = &i;
-    for (i = 1; i < n; i++) {
-        p[i] = q;
-    }
-    return *p[idx];
-}
-
-```
-
-</div>
-
 </div>
 
 ---
