@@ -43,11 +43,25 @@ fuquan 基于A神{.!text-gray-200}
 
 ---
 
+# 关于第一次小测
+
+- 总体情况
+- 咱班情况
+- 考卷总评
+- 评讲试卷
+
+---
+
 # gdb 断点工作原理的证据
 
 - 上节课我提了一嘴 nemu 和 gdb 两种实现断点的方式，现在我们通过一段[代码](https://github.com/fuquan99666/ICS-Codes/blob/main/4/int3.c)来验证 gdb 的断点实现方式
 - 为何要写这么麻烦的代码，gdb 的[切换机制](https://stackoverflow.com/questions/79009941/gdb-make-breakpoint-but-not-show-int3-instruction)。。。
-
+-
+-
+- 补充资料：
+- 一篇很nb的介绍gdb断点的[文章](https://eli.thegreenplace.net/2011/01/27/how-debuggers-work-part-2-breakpoints)
+- 以及推荐一下这位大神的[博客](https://eli.thegreenplace.net), 写了20多年技术博客hhh
+- 关于文章中提到的 Polling 和 Interrupt , [kkwd](https://fuquan99666.github.io/p/cs61c_15-i-o/#io-polling)
 
 ---
 
@@ -56,6 +70,7 @@ fuquan 基于A神{.!text-gray-200}
 
 - AT&A/Unix 与 Inter 汇编语法 [风格区分](https://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html#s3)
 - 通过这个链接你还可以学习一些内联汇编的知识～
+- 甚至你可以学习一下 systemcall 是如何实现的（通过内联汇编）
 
 ---
 
@@ -607,6 +622,7 @@ echo:
 
 - 从特定的段寄存器 `%fs` 的偏移地址 `0x28` 加载金丝雀，并将金丝雀值存储到栈中分配的空间中，然后清除中间用过的寄存器。
 - 在函数返回前，检查金丝雀值是否被破坏，如果被破坏，则调用 `__stack_chk_fail` 函数终止程序。
+- 在编译参数中添加`-fno-stack-protector`可以关闭金丝雀值保护机制, 添加`-fstack-protector-strong`可以开启金丝雀值保护机制。
 
 </div>
 </div>
@@ -909,7 +925,7 @@ Complex Instruction Set Computer & Reduced Instruction Set Computer
 
 > 所以 Y86-64 需要额外的指令（`mrmovq`、`rmmovq`）来先加载内存中的值到寄存器，再进行运算
 
-- 一篇对比 CISC 和 RISC 的[小短文](http://cs.stanford.edu/people/eroberts/courses/soco/projects/risc/risccisc)
+- 一篇对比 CISC 和 RISC 的[小短文](http://cs.stanford.edu/people/eroberts/courses/soco/projects/risc/risccisc) (顺手解释了为什么riscv等精简指令集没有memory-memory等复杂指令)
 - 我本人无意引发圣战😇[CPU架构之争：RISC的诞生与发展缩影](https://blog.csdn.net/SeaCloudHill/article/details/110805281)
 
 </div>
