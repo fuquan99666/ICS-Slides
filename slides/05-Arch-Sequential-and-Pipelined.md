@@ -634,6 +634,8 @@ sequential implementation: summary
 - `valA` 和 `valB` 怎么连的
 - 什么时候 `valP` 可以直传内存
 - 什么时候 `valA` 可以直传内存
+- 图中的 `Cnd` 是不是少了一些线呢？
+- 指令内存和数据内存？主内存不应该只有一个吗？
 
 <div v-click mt-4>
 
@@ -641,6 +643,8 @@ sequential implementation: summary
 
 1. `call`
 2. `rmmovq` `pushq` `popq` `retq` （`mrmovq` 需要吗？不！）
+3. 比如最重要的 `ifun`
+4. 见我的博客
 
 </div>
 
@@ -654,6 +658,16 @@ sequential implementation: summary
 
 </div>
 </div>
+
+---
+
+# 补充资料 ： 从 加法器 到 流水线
+
+- 一个更详细的RISCV单周期CPU[实现](https://fuquan99666.github.io/p/cs61c_7-risc-v-processor-design/)
+- 一个更详细的RISCV控制模块[实现](https://fuquan99666.github.io/p/cs61c_8-control-logic-and-lab05/)
+- 一个更详细的RISCV流水线CPU[实现](https://fuquan99666.github.io/p/cs61c_9-pipelining/)
+- 我认为阅读这些资料可以帮助大家更好理解处理器设计的思想，尤其是 Control Logic 的设计思想（这往往是最复杂的）
+- 从一个简单的仅仅支持加法指令的处理器到支持各种类型指令的流水线处理器，你实际上经历了一个完整的处理器设计过程！
 
 ---
 

@@ -1143,6 +1143,7 @@ stack
 空操作
 - 什么都不做（但是 PC <span text-sm> Program Counter </span> + 1），可以用于对齐字节
 - 记忆：扣 1 真的没有用
+- 后面流水线中它会很有用～
 
 ---
 
