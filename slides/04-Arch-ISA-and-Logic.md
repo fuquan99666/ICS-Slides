@@ -982,7 +982,7 @@ translate assembly code to machine code
 
 ```bash
 0x200:
-  pushq %rbp
+  pushq %rsi
   call 0x20c
   halt
 0x20c:
@@ -993,7 +993,9 @@ translate assembly code to machine code
 </div>
 <div>
 
-<kbd>40</kbd> <kbd>1</kbd><kbd>3</kbd> <kbd>ff ff ff fd</kbd>
+<kbd>40</kbd> <kbd>1</kbd><kbd>3</kbd> <kbd>fd ff ff ff</kbd>
+
+此处A神往年slide有小错误，请注意～
 
 </div>
 </div>
