@@ -671,6 +671,23 @@ sequential implementation: summary
 
 ---
 
+# 关于 lab 迟交
+
+- 目前的政策是 每迟1天扣15%，共三天～
+- Attacklab ddl 在即，大家快点完成
+- Archlab 已经发布，早点开工
+- 如果你希望补交lab，请在3天之内私戳我
+
+--- 
+
+# Talk is cheap, show me the code
+
+- 一个十分精巧的简易 riscv32 代码[模拟器](https://github.com/fuquan99666/ICS-Codes/tree/main/5/rvemu) （感谢jyy）
+- 让你"轻松"理解 riscv32 指令的解析执行过程 e.g. 鸡兔同笼
+- RTFM : [riscv手册](https://github.com/riscv/riscv-isa-manual)
+
+---
+
 # 流水线实现
 
 pipelined implementation

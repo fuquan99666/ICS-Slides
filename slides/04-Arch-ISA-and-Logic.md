@@ -1397,6 +1397,14 @@ memory
 </div>
 </div>
 
+---
+
+# Talk is cheap, show me the code
+
+- 一个我很喜欢的代码示例，终于能端上来了[here](https://github.com/fuquan99666/ICS-Codes/tree/main/5/logisim) （感谢jyy）
+- 一个例子，让你理解什么是 Wire, 什么是 Reg, 什么是 Clock ~
+- RTFM ：[ANSI](https://en.wikipedia.org/wiki/ANSI_escape_code)
+
 
 ---
 layout: center
