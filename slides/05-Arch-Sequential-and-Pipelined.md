@@ -618,7 +618,7 @@ word new_pc = [
 </div>
 </div>
 
-<button @click="$nav.go(26)">🔙</button>
+<button @click="$nav.go(29)">🔙</button>
 
 ---
 
@@ -810,7 +810,7 @@ SEQ vs SEQ+
 </div>
 </div>
 
-<button @click="$nav.go(43)">🔙</button> 
+<button @click="$nav.go(46)">🔙</button> 
 
 ---
 
@@ -866,7 +866,7 @@ PIPE-
 </div>
 </div>
 
-<button @click="$nav.go(43)">🔙</button> 
+<button @click="$nav.go(46)">🔙</button> 
 
 ---
 
@@ -886,7 +886,7 @@ PIPE-
   - W：Write back，写回阶段
 - 同时，有个新模块 `selectA` 来选择 `valA` 的来源
   - `valP`：`call` `jXX`（后面讲，可以想想为啥，提示：控制冒险）
-  - `d_rvalA`：其他未转发的情况（后面讲）<button @click="$nav.go(41)">🔙</button>
+  - `d_rvalA`：其他未转发的情况（后面讲）<button @click="$nav.go(44)">🔙</button>
 
 </div>
 
@@ -1035,7 +1035,7 @@ stall vs bubble
 - 给执行阶段插入了气泡
 - 对译码阶段执行了暂停
 
-<button @click="$nav.go(45)">🔙</button>
+<button @click="$nav.go(48)">🔙</button>
 
 </div>
 
@@ -1178,10 +1178,10 @@ PIPE final structure
 
 注意：
 
-- `Sel + Fwd A`：是 PIPE- 中标号为 `Select A` 的块的功能与转发逻辑的结合。<button @click="$nav.go(30)">💡</button>
+- `Sel + Fwd A`：是 PIPE- 中标号为 `Select A` 的块的功能与转发逻辑的结合。<button @click="$nav.go(33)">💡</button>
 - `Fwd B`
 
-<button @click="$nav.go(44)">🔙</button>
+<button @click="$nav.go(47)">🔙</button>
 
 </div>
 
@@ -1210,7 +1210,7 @@ PIPE final structure
 </div>
 </div>
 
-<button @click="$nav.go(43)">🔙</button> 
+<button @click="$nav.go(46)">🔙</button> 
 
 ---
 
@@ -1236,7 +1236,7 @@ differences between structures
 - 把计算新 PC 计算放到了最开始
 - 目的：为了能够划分流水线做准备，当前指令到 D 阶段时，应当能开始下一条指令的 F 阶段
 - 依旧是没有转发逻辑、且顺序执行
-- <button @click="$nav.go(27)">💡 结构差异图</button> 
+- <button @click="$nav.go(30)">💡 结构差异图</button> 
 
 </div>
 
@@ -1246,7 +1246,7 @@ differences between structures
 
 - 在 SEQ+ 的基础上，增加了流水线寄存器
 - 没有转发逻辑
-- <button @click="$nav.go(29)">💡 结构差异图</button> 
+- <button @click="$nav.go(32)">💡 结构差异图</button> 
 
 </div>
 
@@ -1258,7 +1258,7 @@ differences between structures
 - 增加了转发逻辑
 - 转发源：`M_valA` `W_valW` `W_valE`（流水线寄存器们）、`e_valE` `m_valM`（中间计算结果们）
 - 转发目的地：`d_valA` `d_valB` 
-- <button @click="$nav.go(42)">💡 结构差异图</button> 
+- <button @click="$nav.go(45)">💡 结构差异图</button> 
 
 
 </div>
@@ -1306,7 +1306,7 @@ word f_pc = [
 ];
 ```
 
-<button @click="$nav.go(41)">💡PIPELINE 电路图</button>
+<button @click="$nav.go(44)">💡PIPELINE 电路图</button>
 
 注意，这里用到的都是流水线寄存器，而没有中间计算结果（小写前缀）。
 
@@ -1332,7 +1332,7 @@ $$
 4(\text{RET } 完成 M) - 0(开始 F) - 1(错开一条指令) = 3
 $$
 
-为什么是气泡：<button @click="$nav.go(35)">💡暂停 vs 气泡</button> 暂停保留状态，气泡清空状态。
+为什么是气泡：<button @click="$nav.go(38)">💡暂停 vs 气泡</button> 暂停保留状态，气泡清空状态。
 
 ---
 
