@@ -43,6 +43,17 @@ fuquan 基于A神{.!text-gray-200}
 
 ---
 
+# Archlab Part C 关于 reg_cc 的申明
+
+- Part C 怎么做？ 看每个阶段的 `@set_input` 数量，如何调整？
+- 很遗憾，reg_cc 是黑盒～
+- [chatgpt](https://chatgpt.com/s/t_6ae1edc03e0481918610b80f791dbd88)
+- reg_cc 是单纯地将cc寄存器的值输出，还是根据set_cc的值做一个本次组合逻辑、历史cc输出的MUX选择？
+- 前者的话需要插入一个bubble(如果你的实现是将reg_cc挪到M阶段的话)，即考虑对原本JX和cmove的影响
+
+
+---
+
 # 随机访问存储器
 
 Random Access Memory, RAM
