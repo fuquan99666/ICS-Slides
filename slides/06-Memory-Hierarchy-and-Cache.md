@@ -272,6 +272,8 @@ Disk Storage
 - 容量数量级：GB~TB
 - 访问时间：ms 级别
 
+磁盘之前呢？[jyy's slides](https://jyywiki.cn/OS/2023/build/lect25.ipynb.html)
+
 ---
 
 # 磁盘结构
@@ -765,6 +767,14 @@ Different Cache Organization
 
 ---
 
+# 补充
+
+- 参见我的[Blog](https://fuquan99666.github.io/p/cs61c_10-cache/#set-associative-cache)
+- 组相连缓存的结构图，AMAT的计算
+- 一个不错的[Cache模拟器](https://www.ecs.umass.edu/ece/koren/architecture/CacheTr/cacheSim.html)
+
+---
+
 # 高速缓存读写策略
 
 Cache Read / Write Policy
@@ -1044,7 +1054,12 @@ $$
 
 </div>
 
+---
 
+# 作业题以及补充题目
+
+- 4.57 的 A ，我们直接看更完整的[题目](https://my.feishu.cn/docx/QHvYdDOjToGpb9xC8Okc2fpKnVb)
+- 6.23， 6.24， 计算并不复杂，但是是否需要对进制严谨一些呢？
 
 ---
 layout: center
