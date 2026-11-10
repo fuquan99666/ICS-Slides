@@ -1,0 +1,28 @@
+{
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "chmod +x *.sh && ./apply-all.sh",
+  "routes": [
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|woff|woff2|ico|json|md|txt|mp4|webm|pdf))",
+      "dest": "/$1"
+    },
+    {
+      "src": "^/([^/]+)/(.+)$",
+      "dest": "/$1/$2"
+    },
+    {
+      "src": "^/([^/]+)/?$",
+      "dest": "/$1/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "outputDirectory": "dist",
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  }
+}
