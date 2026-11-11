@@ -1180,6 +1180,13 @@ Executable Object File
 
 ---
 
+# [ftrace](https://nju-projectn.github.io/ics-pa-gitbook/ics2026/2.4.html#函数调用的踪迹---ftrace)：你能手动解析一个 elf 文件吗
+
+- 诚然，`readelf` 等工具可以让你快速查看 elf 文件的内容，但是我相信在手动解析 elf 文件并提取出一些有效信息的过程中，你会对链接有更加深刻的理解。
+- 当前我只[实现](https://github.com/fuquan99666/NJU-PA/blob/main/nemu/src/monitor/monitor.c)了对 Symbol Table 函数的提取，后面会完善核心逻辑部分～
+
+---
+
 # 加载可执行目标文件
 
 Loading an Executable Object File
@@ -1425,6 +1432,7 @@ Library Interposition
 - 编译时打桩
 - 链接时打桩
 - 运行时打桩
+- 替大家整理好了书上的三个例子并且编写好了配套Makefile -> [here](https://github.com/fuquan99666/ICS-Codes/tree/main/7/interpose)
 
 ---
 
