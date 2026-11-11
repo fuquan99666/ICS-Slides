@@ -785,7 +785,13 @@ void f()
 </div>
 </div>
 
+---
 
+# 旁注：对 C++ 和 Java 中链接器符号的重整
+
+- C++ 和 Java 都允许函数重载，这些函数在代码中都有相同的名字，却有不同的参数列表，那么链接器是如何区别这些不同的重载函数呢？
+- 原来，编译器将每个唯一的方法和参数列表组合编码成一个对链接器来说唯一的名字。这种编码过程叫做重整(mangling), 而相反的过程叫做恢复(demangling)。
+- 幸运的是，C++ 和 Java 使用兼容的重整策略。比如，类 Foo 被编码成 3Foo (名字中字符数量+原始名字)。 函数 Foo::bar(int, long) 被编码成 bar__3Fooil (函数名+__+重整后的类名+每个参数的单字母) ...
 
 ---
 
@@ -1264,6 +1270,16 @@ Dynamic Linking Shared Libraries
 
 </div>
 </div>
+
+---
+
+# An interesting lab -- [crepl](https://jyywiki.cn/OS/2023/labs/M4.html)
+
+- 大家一定很熟悉编程语言提供的交互式 read-eval-print-loop (REPL) 环境，更俗一点的名字就是 `交互式的shell`。 例如你经常使用的 Python Shell, 可以帮助你快速测试一些代码片段、高精度计算等。问题来了，在学习了共享库之后，我们是否能自己搓一个 C 语言的 REPL 呢？
+- 可能有同学要问了，Python Shell 能实现是因为 Python 是解释性语言，有专门的 Python 解释器来执行每一行代码，可是 C 语言的逻辑是先编译再执行，似乎不能做到实时交互诶。
+- 请点开上面的链接，欣赏美妙的实现思路！RTFM and RTFSC is all your need !
+- [我的糟糕实现😭](https://github.com/fuquan99666/NJU-OS/blob/main/crepl/crepl.c)
+- 事实上，解释和编译之间的界限是模糊的，很多解释器（比如PyPy）都会参考 JIT (Just In Time) 的思想来对某些代码片段进行编译优化。
 
 ---
 clicks: 1
