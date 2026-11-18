@@ -295,7 +295,7 @@ System Call `man syscall`
 
 # 系统调用
 
-System Call
+System Call -> `/usr/include/x86_64-linux-gnu/asm/unistd_64.h`
 
 ![syscall](/08-ECF/syscall.png){.mx-auto.h-50}
 

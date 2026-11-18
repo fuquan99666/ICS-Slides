@@ -1184,6 +1184,7 @@ Executable Object File
 
 - 诚然，`readelf` 等工具可以让你快速查看 elf 文件的内容，但是我相信在手动解析 elf 文件并提取出一些有效信息的过程中，你会对链接有更加深刻的理解。
 - 当前我只[实现](https://github.com/fuquan99666/NJU-PA/blob/main/nemu/src/monitor/monitor.c)了对 Symbol Table 函数的提取，后面会完善核心逻辑部分～
+- 11.18, 已完成完整的函数调用栈的追踪，欢迎大家 `RTFSC`
 
 ---
 
