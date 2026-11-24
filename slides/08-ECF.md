@@ -1536,8 +1536,8 @@ Signal Handler
 <div grid="~ cols-2 gap-12">
 <div>
 
-### 异步信号安全函数
-###### PRO
+### 异步信号安全函数 
+###### PRO `man 7 signal-safety`
 
 `_exit` `fork` 
 
