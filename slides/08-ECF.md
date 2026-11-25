@@ -1825,6 +1825,12 @@ Nonlocal Jumps
 
 自学。
 
+---
+
+# TSH -- Tiny Shell
+- 改自书上`p525`的有缺陷的实现 -- [Code](https://github.com/fuquan99666/ICS-Codes/blob/main/8/shellex.c)
+- 当然肯定不能和 Shell Lab 比
+
 
 ---
 layout: center
