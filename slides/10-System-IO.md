@@ -912,6 +912,17 @@ I / O Redirection
 
 ---
 
+# 管道的实现 : A | B
+- 在 shell lab 中我们默认一个job就是一个简答的命令，而不考虑多个命令组成的 pipeline.
+- 如果我们遇到 `ls | wc -l` 这种复杂job，应当如何处理呢？
+- 利用 dup2 和 pipe 可以实现管道的功能! `man 3 pipe` ，强大的工具! 
+- Vibe的[代码例子](https://github.com/fuquan99666/ICS-Codes/blob/main/10/pipe.c)
+- 当然啦，之前提到的 crepl 等小工具都使用了类似的方法来实现进程间信息传递的功能！
+
+> xv6 中的管道也是用这个方法实现的欧
+
+---
+
 # I / O 重定向 - 习题
 
 I / O Redirection - Exercise
